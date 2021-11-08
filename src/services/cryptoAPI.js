@@ -20,8 +20,8 @@ export const cryptoApi = createApi({
             query: (coinId) => createRequest(`/coin/${coinId}`),
         }),
         getCryptoHistory: builder.query({
-            query: (coinId, timePeriod) => createRequest(`/coin/${coinId}/history/${timePeriod}`),
-            // problem with history/... api call does not understand time period
+            query: (coinId, timePeriod) => createRequest(`coin/${coinId}/history/${timePeriod}`)
+            // there is a problem with history/time it is not fetched from external API
         }),
         getExchanges: builder.query({
             query: () => createRequest(`/exchanges`),
